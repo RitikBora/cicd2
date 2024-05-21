@@ -1,10 +1,11 @@
 name: CI/CD Pipeline
-
 on:
+  push:
+    branches:
+      - main
   pull_request:
     branches:
       - main
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -19,7 +20,11 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: npm install && npx prisma generate
+        run: npm install
+
+      - name: Generating client
+        working-directory: ./src
+        run: npx prisma generate
 
       - name: Run tests
         run: npm run test
