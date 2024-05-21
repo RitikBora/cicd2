@@ -28,6 +28,9 @@ jobs:
       - name: Show installed dependencies
         run: npm list
 
+      - name: Grant execute permission to vitest
+        run: chmod +x node_modules/.bin/vitest
+
       - name: Generating client
         run: npx prisma generate
 
