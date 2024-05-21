@@ -23,7 +23,7 @@ jobs:
         run: npm install
 
       - name: Generating client
-        working-directory: ./src
+        working-directory: ./src/db
         run: npx prisma generate
 
       - name: Run tests
