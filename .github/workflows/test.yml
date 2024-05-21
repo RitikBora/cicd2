@@ -23,7 +23,11 @@ jobs:
 
       - name: Install dependencies
         working-directory: ./
-        run: npm install && npx prisma generate
+        run: npm install
+
+      - name: genreating prisma client
+        working-directory: ./src/db
+        run: npx prisma generate   
 
       - name: Run tests
         working-directory: ./
